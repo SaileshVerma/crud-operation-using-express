@@ -3,6 +3,7 @@ import { Student } from '../entity/student';
 import {  Request, Response } from 'express';
 
 
+import print=require('../middleware/middleware')
 
 //to create data
 export const createStudent = async (req:Request, res:Response) => {
@@ -14,6 +15,7 @@ export const createStudent = async (req:Request, res:Response) => {
     await studentRepo.save(studentData)
     res.send("Data Of Student Added Successfully")
     console.log("added successfully")
+    
 }
 
 
@@ -60,4 +62,7 @@ export const updateStudent = async (req:Request, res:Response) => {
     res.send("Data Updated Successfully")
     console.log("Data Updated Successfully")
 }
+
+
+
 

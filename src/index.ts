@@ -6,6 +6,9 @@ import { Student } from "./entity/student"
 import { parse } from "path"
 import {router} from './routes/students_routes'
 import path = require("path")
+import print=require('./middleware/middleware')
+
+var jwt=require('jsonwebtoken')
 AppDataSource.initialize().then(async () => {
 
     // create express app
@@ -13,7 +16,7 @@ AppDataSource.initialize().then(async () => {
     app.use(bodyParser.json())
     app.use('/',router)
 //app.use('/',require(path.join(__dirname,'./routes/students_routes')))
-
+     
 
     app.listen(3000, () => {
         console.log("Listening at : Open http://localhost:3000/")
